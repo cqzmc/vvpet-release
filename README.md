@@ -152,12 +152,6 @@ cd vv
 npm run build
 ```
 
-## 相关文档
-
-- Git / GitHub 代理设置：docs/git-github-proxy-setup.md
-- 产品需求：docs/AI桌面宠物助手_Tauri2_Vue3_Rust_PRD.md
-- Windows MVP 规划：docs/windows-mvp.md
-
 ## License
 
 MIT
