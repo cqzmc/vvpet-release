@@ -125,7 +125,7 @@ vv/src-tauri/target/release/bundle/nsis/vv_0.1.0_x64-setup.exe
 ### 更新检查
 
 - 当前检查源为 GitHub Releases：
-   https://github.com/cqzmc/vvpet/releases
+   https://github.com/cqzmc/vvpet-release/releases
 - 支持手动检查
 - 支持应用启动时自动检查
 
