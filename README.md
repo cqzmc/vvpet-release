@@ -3,7 +3,7 @@
 让 AI 住进你的桌面。
 
 vvPet 是一个基于 Tauri 2、Vue 3 和 Rust 的 Windows 桌面 AI 办公萌宠。它把常驻桌宠、AI 对话、截图识别、离线语音、办公提醒和轻量工具整合到同一个桌面工作流里，重点是“不打断当前工作”的低摩擦交互。
-vvPet-poster.png
+[vvPet-poster.png](https://github.com/cqzmc/vvpet-release/blob/30a1fcda14faa12027f77331ccad901de706b6c0/vvPet-poster.png)
 ## 当前版本能做什么
 
 - 双窗口桌宠架构：透明宠物窗口 + 独立聊天窗口
