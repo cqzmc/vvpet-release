@@ -1,6 +1,6 @@
 # vvPet
 
-![vvPet hero](docs/readme/hero.svg)
+![vvPet hero](docs/readme/vvPet-poster.svg)
 
 vvPet 是一个面向 Windows 桌面的 AI 办公萌宠。它把常驻桌宠、主聊天框、截图识别、搜索、离线语音、会议记录、番茄钟和办公提醒放进同一个轻量工作流里，目标是让 AI 随时可用，但不打断当前工作。
 
@@ -15,7 +15,7 @@ vvPet 是一个面向 Windows 桌面的 AI 办公萌宠。它把常驻桌宠、�
 - 办公提醒：支持 Outlook 未读提醒、系统托盘、开机启动、启动时检查更新和 GitHub Releases 更新检查。
 - 隐私边界清晰：API Key / Forvia Token 写入 Windows 凭据管理器，本地搜索目录需要显式授权。
 
-![vvPet workflow](docs/readme/workflow.svg)
+![vvPet workflow](docs/readme/vvPet-poster.svg)
 
 ## Product Surface
 
@@ -31,7 +31,7 @@ vvPet 是一个面向 Windows 桌面的 AI 办公萌宠。它把常驻桌宠、�
 
 当前主线宠物是 Pixel Cat；Hoop Chick 已作为展示和接口预留，后续可接入完整动作与行为。
 
-![vvPet pets](docs/readme/pets.svg)
+![vvPet pets](docs/readme/vvPet-poster.svg)
 
 ## Features
 
