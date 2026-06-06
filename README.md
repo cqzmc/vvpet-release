@@ -36,7 +36,7 @@
 </a>
 </div>
 ---
-![vvpet-poste](images/vvpet-poster.png)
+![vvPet-poster](images/vvPet-poster.png)
 <br>
 ✨ 产品亮点
 <div align="center">
