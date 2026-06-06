@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- 修复：fontSize 从 90 降到 65，height 从 300 升到 320，确保 vvPet 完整显示 -->
-<img src="https://capsule-render.vercel.app/api?type=venom&height=320&color=gradient&customColorList=12,14,15,16,18,20&text=vvPet&fontColor=fff&fontSize=60&desc=AI%20%E5%8A%9E%E5%85%AC%E8%90%8C%E5%AE%A0&descSize=20&descAlign=72&descAlignY=65&animation=twinkling" />
+<img src="https://capsule-render.vercel.app/api?type=venom&height=320&color=gradient&customColorList=12,14,15,16,18,20&text=vvPet&fontColor=fff&fontSize=40&desc=AI%20%E5%8A%9E%E5%85%AC%E8%90%8C%E5%AE%A0&descSize=20&descAlign=72&descAlignY=65&animation=twinkling" />
 
 <br>
 
