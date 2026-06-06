@@ -47,6 +47,8 @@
 
 ---
 
+<img src="images/vvPet-poster.png" width="360" alt="vvPet 海报" />
+
 <br>
 
 ## ✨ 产品亮点
