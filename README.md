@@ -47,7 +47,7 @@
 
 ---
 
-<img src="images/vvPet-poster.png" width="360" alt="vvPet 海报" />
+![vvPet 海报](images/vvPet-poster.png)
 
 <br>
 
