@@ -310,6 +310,7 @@ npm run build
 <div align="center">
 
 [![Star History Chart](https://api.star-history.com/svg?repos=cqzmc/vvpet-release&type=Date)](https://star-history.com/#cqzmc/vvpet-release&Date)
+![GitHub all releases](https://img.shields.io/github/downloads/cqzmc/vvpet-release/total)
 
 </div>
 
