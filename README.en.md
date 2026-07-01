@@ -191,4 +191,4 @@ If vvPet helps you, consider starring the release repository.
 
 ## License
 
-MIT. A root `LICENSE` file should be added before public release to avoid missing license metadata.
+MIT
