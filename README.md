@@ -24,9 +24,9 @@
   <a href="https://github.com/cqzmc/vvpet-release/releases"><img src="https://img.shields.io/badge/Download%20for%20Windows-111827?style=for-the-badge&logo=github&logoColor=white" alt="Download for Windows" /></a>
   <a href="#快速开始"><img src="https://img.shields.io/badge/Quick%20Start-14b8a6?style=for-the-badge&logo=rocket&logoColor=white" alt="Quick Start" /></a>
 </p>
-![vvPet 海报](images/vvPet-poster.png)
-</div>
 
+</div>
+![vvPet 海报](images/vvPet-poster.png)
 ## 为什么是 vvPet
 
 vvPet 是一个 Windows 桌面 AI 办公萌宠。它把聊天窗口、桌宠、灵动岛、截图、翻译、会议记录、番茄钟和本地模型管理放在同一个轻量桌面应用里，尽量用本地处理保护隐私，只在你明确需要时调用远程模型。
