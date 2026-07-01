@@ -26,8 +26,11 @@
 </p>
 
 </div>
+
 <br>
-![vvPet 海报](images/vvPet-poster.png)  
+
+![vvPet 海报](images/vvPet-poster.png)
+
 <br>
 
 ## 为什么是 vvPet
