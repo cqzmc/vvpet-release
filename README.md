@@ -24,7 +24,7 @@
 <a href="#license">
   <img src="https://img.shields.io/badge/License-MIT-fb923c?style=for-the-badge&logo=opensourceinitiative&logoColor=white&labelColor=1e1e3a" />
 </a>
-
+![GitHub all releases](https://img.shields.io/github/downloads/cqzmc/vvpet-release/total)
 <br><br>
 
 <!-- Tagline -->
@@ -310,7 +310,7 @@ npm run build
 <div align="center">
 
 [![Star History Chart](https://api.star-history.com/svg?repos=cqzmc/vvpet-release&type=Date)](https://star-history.com/#cqzmc/vvpet-release&Date)
-![GitHub all releases](https://img.shields.io/github/downloads/cqzmc/vvpet-release/total)
+
 
 </div>
 
