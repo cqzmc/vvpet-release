@@ -1,7 +1,13 @@
 <div align="center">
 
 <p>
+  <b>中文</b> · <a href="README.en.md">English</a>
+</p>
+
+<p>
   <a href="https://github.com/cqzmc/vvpet-release/releases"><img src="https://img.shields.io/github/v/release/cqzmc/vvpet-release?style=for-the-badge&logo=github&color=22d3ee&labelColor=111827" alt="Latest release" /></a>
+  <a href="https://github.com/cqzmc/vvpet-release/stargazers"><img src="https://img.shields.io/github/stars/cqzmc/vvpet-release?style=for-the-badge&logo=github&color=facc15&labelColor=111827" alt="GitHub stars" /></a>
+  <a href="https://github.com/cqzmc/vvpet-release/releases"><img src="https://img.shields.io/github/downloads/cqzmc/vvpet-release/total?style=for-the-badge&logo=github&color=14b8a6&labelColor=111827" alt="GitHub downloads" /></a>
   <img src="https://img.shields.io/badge/Windows-10%20%2F%2011-0078D6?style=for-the-badge&logo=windows&logoColor=white&labelColor=111827" alt="Windows 10 / 11" />
   <img src="https://img.shields.io/badge/Tauri-2-24C8D8?style=for-the-badge&logo=tauri&logoColor=white&labelColor=111827" alt="Tauri 2" />
   <img src="https://img.shields.io/badge/Vue-3-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white&labelColor=111827" alt="Vue 3" />
@@ -26,6 +32,28 @@
 vvPet 是一个 Windows 桌面 AI 办公萌宠。它把聊天窗口、桌宠、灵动岛、截图、翻译、会议记录、番茄钟和本地模型管理放在同一个轻量桌面应用里，尽量用本地处理保护隐私，只在你明确需要时调用远程模型。
 
 它不是一个大而全的工作台，而是一个常驻桌面的低打扰助手：平时缩在桌面角落或灵动岛里，需要时一键展开主聊天框。
+
+## 项目热度
+
+<div align="center">
+
+<a href="https://star-history.com/#cqzmc/vvpet-release&Date">
+  <img src="https://api.star-history.com/svg?repos=cqzmc/vvpet-release&type=Date" alt="vvPet Star History" />
+</a>
+
+<br>
+
+<a href="https://github.com/cqzmc/vvpet-release/stargazers">
+  <img src="https://img.shields.io/github/stars/cqzmc/vvpet-release?style=flat-square&logo=github&label=Stars" alt="GitHub stars" />
+</a>
+<a href="https://github.com/cqzmc/vvpet-release/releases">
+  <img src="https://img.shields.io/github/downloads/cqzmc/vvpet-release/total?style=flat-square&logo=github&label=Downloads" alt="GitHub downloads" />
+</a>
+<a href="https://github.com/cqzmc/vvpet-release/releases/latest">
+  <img src="https://img.shields.io/github/v/release/cqzmc/vvpet-release?style=flat-square&logo=github&label=Latest" alt="Latest release" />
+</a>
+
+</div>
 
 ## 功能亮点
 
@@ -123,7 +151,8 @@ vvpet/
 │  └─ scripts/           构建与发布脚本
 ├─ build-dist/           对外物料与构建产物
 ├─ AGENTS.md             仓库协作说明
-└─ README.md
+├─ README.md             中文说明
+└─ README.en.md          English README
 ```
 
 ## 隐私与本地优先
@@ -168,4 +197,8 @@ MIT. 发布前建议补齐根目录 `LICENSE` 文件，避免许可证链接缺�
 
 如果 vvPet 对你有帮助，欢迎在发布仓库点 Star。
 
-[](https://star-history.com/#cqzmc/vvpet-release&Date)
+<a href="https://github.com/cqzmc/vvpet-release/stargazers">
+  <img src="https://img.shields.io/github/stars/cqzmc/vvpet-release?style=social&logo=github" alt="Star vvPet" />
+</a>
+
+</div>
