@@ -27,6 +27,12 @@
 
 </div>
 
+<br>
+
+![vvPet 海报](images/vvPet-poster.png)
+
+<br>
+
 ## Why vvPet
 
 vvPet is a Windows desktop AI office pet. It combines a chat window, desktop pet, dynamic island, screenshots, translation, meeting recording, Pomodoro tasks, and local model management in one lightweight desktop app.
