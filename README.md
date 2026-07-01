@@ -159,13 +159,6 @@ vvpet/
 - English
 - Français
 
-
-## License
-
-MIT
-
----
-
 <div align="center">
 
 如果 vvPet 对你有帮助，欢迎在发布仓库点 Star。
@@ -196,3 +189,9 @@ MIT
 </a>
 
 </div>
+
+## License
+
+MIT
+
+---
