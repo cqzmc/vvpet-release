@@ -33,27 +33,7 @@ vvPet is a Windows desktop AI office pet. It combines a chat window, desktop pet
 
 The product is designed for low interruption. Most of the time it stays as a small desktop companion or a compact dynamic island. When you need AI, it expands into a focused chat and tool surface.
 
-## Project Stats
 
-<div align="center">
-
-<a href="https://star-history.com/#cqzmc/vvpet-release&Date">
-  <img src="https://api.star-history.com/svg?repos=cqzmc/vvpet-release&type=Date" alt="vvPet Star History" />
-</a>
-
-<br>
-
-<a href="https://github.com/cqzmc/vvpet-release/stargazers">
-  <img src="https://img.shields.io/github/stars/cqzmc/vvpet-release?style=flat-square&logo=github&label=Stars" alt="GitHub stars" />
-</a>
-<a href="https://github.com/cqzmc/vvpet-release/releases">
-  <img src="https://img.shields.io/github/downloads/cqzmc/vvpet-release/total?style=flat-square&logo=github&label=Downloads" alt="GitHub downloads" />
-</a>
-<a href="https://github.com/cqzmc/vvpet-release/releases/latest">
-  <img src="https://img.shields.io/github/v/release/cqzmc/vvpet-release?style=flat-square&logo=github&label=Latest" alt="Latest release" />
-</a>
-
-</div>
 
 ## Highlights
 
@@ -199,6 +179,27 @@ If vvPet helps you, consider starring the release repository.
 
 <a href="https://github.com/cqzmc/vvpet-release/stargazers">
   <img src="https://img.shields.io/github/stars/cqzmc/vvpet-release?style=social&logo=github" alt="Star vvPet" />
+</a>
+
+</div>
+## Project Stats
+
+<div align="center">
+
+<a href="https://star-history.com/#cqzmc/vvpet-release&Date">
+  <img src="https://api.star-history.com/svg?repos=cqzmc/vvpet-release&type=Date" alt="vvPet Star History" />
+</a>
+
+<br>
+
+<a href="https://github.com/cqzmc/vvpet-release/stargazers">
+  <img src="https://img.shields.io/github/stars/cqzmc/vvpet-release?style=flat-square&logo=github&label=Stars" alt="GitHub stars" />
+</a>
+<a href="https://github.com/cqzmc/vvpet-release/releases">
+  <img src="https://img.shields.io/github/downloads/cqzmc/vvpet-release/total?style=flat-square&logo=github&label=Downloads" alt="GitHub downloads" />
+</a>
+<a href="https://github.com/cqzmc/vvpet-release/releases/latest">
+  <img src="https://img.shields.io/github/v/release/cqzmc/vvpet-release?style=flat-square&logo=github&label=Latest" alt="Latest release" />
 </a>
 
 </div>
