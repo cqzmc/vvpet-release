@@ -160,28 +160,11 @@ Built in:
 - English
 - French
 
-Language switching updates the main chat, settings, dynamic island, pet quick menu, selection translation window, and tray menu. English and French use a wider default chat window of `480 x 480`; Chinese keeps `360 x 480`.
-
-## Roadmap
-
-- [x] Multilingual chat, settings, and tool panels
-- [x] Multilingual dynamic island, pet quick menu, selection translation window, and tray menu
-- [x] Offline voice, TTS, and local model management
-- [x] Meeting recording, offline transcription, and meeting minutes
-- [x] Screenshot annotation, OCR, translation, and attachment handoff
-- [ ] Add more real screenshots and demo GIFs
-- [ ] Expand community translation workflow
-- [ ] Improve CI, release notes, and installer signing
-
 ---
 
 <div align="center">
 
 If vvPet helps you, consider starring the release repository.
-
-<a href="https://github.com/cqzmc/vvpet-release/stargazers">
-  <img src="https://img.shields.io/github/stars/cqzmc/vvpet-release?style=social&logo=github" alt="Star vvPet" />
-</a>
 
 </div>
 ## Project Stats
