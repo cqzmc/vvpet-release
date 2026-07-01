@@ -163,10 +163,6 @@ vvpet/
 
 如果 vvPet 对你有帮助，欢迎在发布仓库点 Star。
 
-<a href="https://github.com/cqzmc/vvpet-release/stargazers">
-  <img src="https://img.shields.io/github/stars/cqzmc/vvpet-release?style=social&logo=github" alt="Star vvPet" />
-</a>
-
 </div>
 ## 项目热度
 
