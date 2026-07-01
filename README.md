@@ -33,27 +33,6 @@ vvPet 是一个 Windows 桌面 AI 办公萌宠。它把聊天窗口、桌宠、�
 
 它不是一个大而全的工作台，而是一个常驻桌面的低打扰助手：平时缩在桌面角落或灵动岛里，需要时一键展开主聊天框。
 
-## 项目热度
-
-<div align="center">
-
-<a href="https://star-history.com/#cqzmc/vvpet-release&Date">
-  <img src="https://api.star-history.com/svg?repos=cqzmc/vvpet-release&type=Date" alt="vvPet Star History" />
-</a>
-
-<br>
-
-<a href="https://github.com/cqzmc/vvpet-release/stargazers">
-  <img src="https://img.shields.io/github/stars/cqzmc/vvpet-release?style=flat-square&logo=github&label=Stars" alt="GitHub stars" />
-</a>
-<a href="https://github.com/cqzmc/vvpet-release/releases">
-  <img src="https://img.shields.io/github/downloads/cqzmc/vvpet-release/total?style=flat-square&logo=github&label=Downloads" alt="GitHub downloads" />
-</a>
-<a href="https://github.com/cqzmc/vvpet-release/releases/latest">
-  <img src="https://img.shields.io/github/v/release/cqzmc/vvpet-release?style=flat-square&logo=github&label=Latest" alt="Latest release" />
-</a>
-
-</div>
 
 ## 功能亮点
 
@@ -199,6 +178,27 @@ MIT. 发布前建议补齐根目录 `LICENSE` 文件，避免许可证链接缺�
 
 <a href="https://github.com/cqzmc/vvpet-release/stargazers">
   <img src="https://img.shields.io/github/stars/cqzmc/vvpet-release?style=social&logo=github" alt="Star vvPet" />
+</a>
+
+</div>
+## 项目热度
+
+<div align="center">
+
+<a href="https://star-history.com/#cqzmc/vvpet-release&Date">
+  <img src="https://api.star-history.com/svg?repos=cqzmc/vvpet-release&type=Date" alt="vvPet Star History" />
+</a>
+
+<br>
+
+<a href="https://github.com/cqzmc/vvpet-release/stargazers">
+  <img src="https://img.shields.io/github/stars/cqzmc/vvpet-release?style=flat-square&logo=github&label=Stars" alt="GitHub stars" />
+</a>
+<a href="https://github.com/cqzmc/vvpet-release/releases">
+  <img src="https://img.shields.io/github/downloads/cqzmc/vvpet-release/total?style=flat-square&logo=github&label=Downloads" alt="GitHub downloads" />
+</a>
+<a href="https://github.com/cqzmc/vvpet-release/releases/latest">
+  <img src="https://img.shields.io/github/v/release/cqzmc/vvpet-release?style=flat-square&logo=github&label=Latest" alt="Latest release" />
 </a>
 
 </div>
