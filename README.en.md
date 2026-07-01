@@ -173,10 +173,6 @@ Language switching updates the main chat, settings, dynamic island, pet quick me
 - [ ] Expand community translation workflow
 - [ ] Improve CI, release notes, and installer signing
 
-## License
-
-MIT. A root `LICENSE` file should be added before public release to avoid missing license metadata.
-
 ---
 
 <div align="center">
@@ -209,3 +205,7 @@ If vvPet helps you, consider starring the release repository.
 </a>
 
 </div>
+
+## License
+
+MIT. A root `LICENSE` file should be added before public release to avoid missing license metadata.
