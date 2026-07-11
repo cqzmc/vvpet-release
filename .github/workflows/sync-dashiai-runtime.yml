@@ -1,0 +1,104 @@
+name: Sync DashiAI Runtime
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Existing vvPet Release tag that receives the Runtime asset
+        required: true
+        type: string
+      force:
+        description: Rebuild even when the upstream commit did not change
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  sync-runtime:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Compare DashiAI main commit
+        id: upstream
+        shell: pwsh
+        env:
+          FORCE: ${{ inputs.force }}
+        run: |
+          $headers = @{ "User-Agent" = "vvpet-release-runtime-sync" }
+          $upstream = (Invoke-RestMethod -Headers $headers -Uri "https://api.github.com/repos/chuspeeism/dashiAI-ppt-skill/commits/main").sha
+          $previous = if (Test-Path .dashiai-upstream-commit) { (Get-Content .dashiai-upstream-commit -Raw).Trim() } else { "" }
+          $changed = $upstream -ne $previous -or $env:FORCE -eq "true"
+          "upstream_sha=$upstream" >> $env:GITHUB_OUTPUT
+          "changed=$changed" >> $env:GITHUB_OUTPUT
+
+      - name: Build Runtime archive
+        if: steps.upstream.outputs.changed == 'True'
+        id: package
+        shell: pwsh
+        env:
+          UPSTREAM_SHA: ${{ steps.upstream.outputs.upstream_sha }}
+        run: |
+          $ErrorActionPreference = "Stop"
+          $archive = Join-Path $env:RUNNER_TEMP "dashiai-source.zip"
+          $sourceRoot = Join-Path $env:RUNNER_TEMP "dashiai-source"
+          $stage = Join-Path $env:RUNNER_TEMP "dashiai-runtime"
+          New-Item -ItemType Directory -Path (Join-Path $stage "node") -Force | Out-Null
+          Invoke-WebRequest -Uri "https://github.com/chuspeeism/dashiAI-ppt-skill/archive/$env:UPSTREAM_SHA.zip" -OutFile $archive
+          Expand-Archive -LiteralPath $archive -DestinationPath $sourceRoot -Force
+          $source = Get-ChildItem -LiteralPath $sourceRoot -Directory | Select-Object -First 1
+          Copy-Item -LiteralPath (Join-Path $source.FullName "skills\dashiai-ppt") -Destination (Join-Path $stage "dashiai-ppt") -Recurse
+          Copy-Item -LiteralPath (Get-Command node).Source -Destination (Join-Path $stage "node\node.exe") -Force
+          Push-Location (Join-Path $stage "dashiai-ppt\project")
+          npm ci --ignore-scripts
+          $runtimeVersion = (Get-Content package.json -Raw | ConvertFrom-Json).version
+          Pop-Location
+          $asset = "dashiai-ppt-runtime-$env:UPSTREAM_SHA.zip"
+          $assetPath = Join-Path $env:RUNNER_TEMP $asset
+          Compress-Archive -Path (Join-Path $stage "*") -DestinationPath $assetPath -CompressionLevel Optimal
+          $manifest = [ordered]@{
+            upstream_commit = $env:UPSTREAM_SHA
+            runtime_version = $runtimeVersion
+            node_version = (node --version)
+            asset = $asset
+            sha256 = (Get-FileHash -Algorithm SHA256 $assetPath).Hash.ToLowerInvariant()
+          } | ConvertTo-Json
+          $manifestPath = Join-Path $env:RUNNER_TEMP "dashiai-ppt-runtime.json"
+          Set-Content -LiteralPath $manifestPath -Value $manifest -Encoding utf8NoBOM
+          "asset_path=$assetPath" >> $env:GITHUB_OUTPUT
+          "manifest_path=$manifestPath" >> $env:GITHUB_OUTPUT
+
+      - name: Upload Runtime to this vvPet Release
+        if: steps.upstream.outputs.changed == 'True'
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.event.release.tag_name || inputs.release_tag }}
+          ASSET_PATH: ${{ steps.package.outputs.asset_path }}
+          MANIFEST_PATH: ${{ steps.package.outputs.manifest_path }}
+        run: gh release upload $env:RELEASE_TAG $env:ASSET_PATH $env:MANIFEST_PATH --clobber
+
+      - name: Record synchronized DashiAI commit
+        if: steps.upstream.outputs.changed == 'True'
+        shell: pwsh
+        env:
+          UPSTREAM_SHA: ${{ steps.upstream.outputs.upstream_sha }}
+        run: |
+          Set-Content -LiteralPath .dashiai-upstream-commit -Value $env:UPSTREAM_SHA -NoNewline
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .dashiai-upstream-commit
+          git commit -m "chore: sync DashiAI $env:UPSTREAM_SHA"
+          git push origin HEAD:main
