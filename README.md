@@ -27,12 +27,6 @@
 
 </div>
 
-<br>
-
-![vvPet 海报](images/vvPet-poster.png)
-
-<br>
-
 ## 为什么是 vvPet
 
 vvPet 是一个 Windows 桌面 AI 办公萌宠。它把 **常驻桌宠、Agent 助手、灵动岛、截图、翻译、会议记录、番茄钟和本地模型管理** 放进同一个轻量桌面应用，默认用本地能力处理隐私数据，只在你明确需要时调用远程服务。
@@ -108,16 +102,6 @@ Windows 系统语音
 | llama.cpp / sherpa-onnx | 本地运行时 | GitHub ↔ ghfast / gh-proxy |
 | RapidOCR | 本地 OCR | HuggingFace ↔ hf-mirror |
 | Python 3.12 | 文档 / OCR / 技能 / Kokoro | 清华镜像 ↔ python.org |
-
-## 界面
-
-| 主界面 | 桌宠选择 |
-| --- | --- |
-| ![主界面](images/main.jpg) | ![桌宠选择](images/petchoose.jpg) |
-
-| 语音模型 | 灵动岛 |
-| --- | --- |
-| ![语音模型](images/voice.jpg) | ![灵动岛](images/Dynamic%20Island.jpg) |
 
 ## 使用场景
 
@@ -220,7 +204,6 @@ vvPet 的模型下载默认优先官方源，并提供可达的镜像兜底：
 ```text
 vvpet/
 ├─ docs/                 产品文档与方案
-├─ images/               README 图片
 ├─ vv/                   主应用
 │  ├─ src/               Vue 前端源码
 │  ├─ src/i18n/          多语言资源
