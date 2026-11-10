@@ -27,12 +27,6 @@
 
 </div>
 
-<br>
-
-![vvPet poster](images/vvPet-poster.png)
-
-<br>
-
 ## Why vvPet
 
 vvPet is a Windows desktop AI office pet. It combines a **resident pet, Agent assistant, dynamic island, screenshots, translation, meeting notes, Pomodoro, and local model management** in one lightweight desktop app. It uses local capabilities by default and calls remote services only when you explicitly ask for them.
@@ -108,16 +102,6 @@ Windows system voice
 | llama.cpp / sherpa-onnx | Local runtimes | GitHub ↔ ghfast / gh-proxy |
 | RapidOCR | Local OCR | HuggingFace ↔ hf-mirror |
 | Python 3.12 | Documents / OCR / skills / Kokoro | Tsinghua ↔ python.org |
-
-## Interface
-
-| Main window | Pet selection |
-| --- | --- |
-| ![Main window](images/main.jpg) | ![Pet selection](images/petchoose.jpg) |
-
-| Voice models | Dynamic island |
-| --- | --- |
-| ![Voice models](images/voice.jpg) | ![Dynamic island](images/Dynamic%20Island.jpg) |
 
 ## Workflows
 
@@ -220,7 +204,6 @@ Models, runtimes, and Python packages live in the local application data directo
 ```text
 vvpet/
 ├─ docs/                 Product docs and proposals
-├─ images/               README images
 ├─ vv/                   Main application
 │  ├─ src/               Vue frontend source
 │  ├─ src/i18n/          Locale resources
