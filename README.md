@@ -26,8 +26,6 @@
 </p>
 
 </div>
-
-
 <br>
 
 ![vvPet 海报](images/poster-cn-16x9.jpg)
