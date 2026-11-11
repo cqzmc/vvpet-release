@@ -31,10 +31,6 @@
 
 ![vvPet 海报](images/poster-cn-16x9.jpg)
 
-<p align="center">
-  <a href="images/poster-cn-16x9-4k.png">下载 4K 高清原图（5472×3072）</a>
-</p>
-
 <br>
 
 ## 为什么是 vvPet
