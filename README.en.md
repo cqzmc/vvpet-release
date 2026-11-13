@@ -17,7 +17,7 @@
 <h3>Bring AI to your desktop without breaking focus: chat, reminders, translation, screenshots, meetings, and local search in one lightweight companion.</h3>
 
 <p>
-  <b>🐳 Whale girl pet · 🤖 Agent assistant · 🎙️ Offline ASR · 🗣️ Online/offline TTS · 🍅 Pomodoro · 📝 Meeting notes · 🔤 Selection translation · 📄 Document OCR · 🧠 Local LLM · 📧 Mail digest · 🏝️ Dynamic island · 📸 Screenshot toolkit · 🌍 Multilingual</b>
+  <b>🐳 Whale girl pet · 🤖 Agent workbench · 🎙️ Offline ASR · 🗣️ Online/offline TTS · 🍅 Pomodoro · 📝 Recording workbench · 🔤 Selection translation · 📄 Document OCR · 🧠 Local LLM · 📧 Mail digest · 🏝️ Dynamic island · 📸 Screenshot toolkit · 🌍 Multilingual</b>
 </p>
 
 <p>
@@ -27,42 +27,67 @@
 
 </div>
 
+![vvPet](images/vvpet-poster-cn-v0.1.33.jpg)
+
 ## Why vvPet
 
-vvPet is a Windows desktop AI office pet. It combines a **resident pet, Agent assistant, dynamic island, screenshots, translation, meeting notes, Pomodoro, and local model management** in one lightweight desktop app. It uses local capabilities by default and calls remote services only when you explicitly ask for them.
+vvPet is a Windows desktop AI office pet. It combines a **resident pet, Agent workbench, dynamic island, screenshots, translation, recording and meeting notes, Pomodoro, and local model management** in one lightweight desktop app. It uses local capabilities by default and calls remote services only when you explicitly ask for them.
 
-It is not a huge all-in-one workspace. It is a low-interruption desktop companion: it stays in a corner or in the dynamic island, and expands into a focused chat surface when needed.
+vvPet combines a quiet desktop companion with an executable Agent workbench: use quick chat and reminders by the pet, or open a trusted workspace and actually finish the documents and code.
 
-## Recent Highlights
+## Recent Highlights · v0.1.33
 
-- **Whale girl is now the default pet.** Fresh installs and the old Pixel Cat default are migrated to Whale girl; Pixel Cat remains selectable in settings.
-- **Kokoro ONNX bilingual offline speech.** `kokoro-onnx` with `zf_001` for Chinese and `af_maple` for English; the runtime and model are installed on demand.
-- **Multi-level TTS fallback.** Edge TTS online first (Xiaoxiao / Aria), then an online backup, then offline Piper, then the Windows system voice.
-- **Agent is the default mode.** Switch back to Chat at any time. The first visit to the Agent settings no longer runs a blocking network capability probe.
-- **Companion restored.** The left rail, `Ctrl+4`, and `Ctrl+Shift+M` open the companion stage; the old left pet avatar flyout remains removed.
-- **Translation flow rebuilt.** A Translate button sits next to Send and sends immediately; the result card is a fixed floating panel, fixing the old vertical/clipped layout.
-- **Light theme fixes.** Quick Tools, Pomodoro, About, Quick Studio, system settings, and other surfaces no longer keep dark slabs.
-- **Screenshot improvements.** Horizontally scrollable toolbar on narrow screens, compact color swatch, `Ctrl+C` copy, and `Ctrl+S` save.
-- **Model source fallbacks.** HuggingFace ↔ hf-mirror, GitHub ↔ ghfast / gh-proxy, Python ↔ Tsinghua / python.org.
+- **Agent workbench**: Ask, Smart and Always approval levels with independent trusted-directory checks; agent settings now live under Engine.
+- **Expanded workspace**: trusted local folders, file browsing and editing, change/artifact history, backups, restore and task records.
+- **Code and document execution**: exact text patches, verified writes, bounded Python/Node/npm/Cargo/Git execution, real exit results and Windows process cancellation.
+- **Recording workbench**: start recording or screen capture directly, with a shared timer and level bar; audio lands on disk, gets transcribed offline and turned into minutes, while the editor handles MP4 conversion, subtitles and resumable transfers.
+- **Lightweight pet controls**: a white dock follows the visible pet artwork, with compose, screenshot and notification controls; the light single-line input collapses on blur and preserves drafts, with useful reminders and replies in its inbox.
+- **Capture and island**: window/native-control snapping, annotation tools above and actions below; PNG captures save to the system Downloads folder by default, with separate Save as and Attach to chat actions. Weather symbols follow conditions; the island has rounded loading and retry states.
+- **Model connections**: saved provider connections, endpoint-specific credentials, model discovery and direct model/context/reasoning selection in the composer.
+- **Compact conversations**: content-sized bubbles, hover actions, copy feedback, edit/resend, context estimates and compaction commands.
+- **Office-friendly behavior**: distinct Office, Hybrid and Companion behavior; scrolling island notices and consistent full-width office pages.
+- **File transfer and details**: embedded WeChat file transfer, action-library cards and a separately scrolling engine list; existing voice, capture, meeting and local-model features remain.
+
+See [release notes](CHANGELOG.md).
+
+- **Daily brief**: when enabled, opening the main window shows today’s saved brief or generates one with the selected model. Suggestions can be added to to-dos. Remote models receive the office data needed for the brief (mail, calendar, chat and tasks); disable daily briefs in System settings or select a local model if needed.
+- **Engines and daily planning**: extensions, runtimes (including OCR), skills and agent tools share four sections. Pinned resources download up to three files at once and reuse verified payloads. Today restores saved daily briefs and links suggested actions to the same to-do list without duplicates.
+- **Offline engine repairs**: pinned, multi-source verified Python/OCR/Kokoro installs with real invocation probes; fixed interactive local Qwen calls and truncated embedding models. Mail assessment uses the currently configured language model on request, with human review.
+- **Pre-release fixes**: stale connection/key results, disappearing long-running task notices, and shared transcript protection after partial recording deletion failures.
 
 ## Highlights
 
 | Capability | What it does |
 | --- | --- |
 | 🐳 Resident pet | Whale girl by default, Pixel Cat compatible; right-click menu, expressions, floating notices, and companion-stage interactions |
-| 🤖 Agent assistant | Agent by default; multi-model setup, enterprise gateway, OpenAI-compatible APIs, deep thinking, web search, and chat history |
+| 🤖 Agent assistant | Three approval levels, model connections, enterprise gateway, bounded tools, step budget, task history and explicit resume |
+| 📂 Workspace | Browse, create, rename, delete, preview, and edit text inside authorized folders; hand work to the Agent |
+| 🧑‍💻 Code and document execution | Exact text patches, verified writes, bounded Python/Node/npm/Cargo/Git runs, real exit codes |
+| 🎙️ Recording workbench | Audio and screen recording, shared timer and level bar, offline transcription, generated minutes, MP4 conversion and subtitles |
 | 🧠 Local LLM | Local GGUF / llama.cpp runtime and model management for offline and privacy-first workflows |
 | 🎙️ Offline ASR | Whisper / SenseVoice offline recognition with runtime and model management |
 | 🗣️ Text-to-speech | Edge TTS online first; offline Piper fallback; optional Kokoro ONNX bilingual; Windows system voice as the final fallback |
 | 🍅 Pomodoro | Focus timer, todos, priority, event size, postpone / complete / delete, and pet-state sync |
 | 📝 Meeting notes | Meeting recording, local saving, offline transcription, generated minutes, and attachment handoff |
 | 🔤 Selection translation | Translate, summarize, add to todo, copy, or continue in chat from a lightweight popup |
-| 📸 Screenshot toolkit | Region capture, annotation, mosaic, text, shapes, local OCR, copy, and chat attachments |
+| 📸 Screenshot toolkit | Region capture, window snapping, annotation, mosaic, text, shapes, local OCR, copy, and chat attachments |
 | 📄 Document OCR | PDF text extraction, image OCR, local preview, and context injection; PPTX is read-only |
 | 📧 Mail digest | Outlook unread-mail reminders through local COM integration |
-| 🏝️ Dynamic island | Compact status island for screenshots, reminders, search, Pomodoro, todos, and downloads |
-| 📂 Workspace | Browse, create, rename, delete, preview, and edit text inside authorized folders; hand work to the Agent |
+| 🏝️ Dynamic island | Compact status island for screenshots, reminders, search, Pomodoro, recording, editing and downloads |
+| 📨 File transfer | WeChat file transfer assistant embedded directly in the main window |
 | 🌍 Multilingual UI | Chinese, English, and French across chat, settings, island, pet menu, and translation windows |
+
+## Three approval levels
+
+Every edit, program run and web request is decided by the approval level on the left of the composer:
+
+| Level | Behavior |
+| --- | --- |
+| Ask first | Ask before edits, programs or web access |
+| Smart approval | Create and patch automatically; overwrites and executions still need approval |
+| Always | Run automatically inside the trusted scope; irreversible operations are approved separately |
+
+The scope is “App and trusted directories”, checked independently from directory trust.
 
 ## Voice and Models
 
@@ -106,6 +131,7 @@ Windows system voice
 ## Workflows
 
 - **Ask quickly**: open chat from the pet menu or a shortcut and ask directly.
+- **Hand over the work**: let the Agent edit documents and run scripts inside a trusted directory, verify the write afterwards, and restore a backup if something goes wrong.
 - **Summarize meetings**: record locally, transcribe offline, then generate minutes.
 - **Read documents without leaving the desktop**: upload PDFs, images, or documents, extract text locally, then summarize or translate.
 - **Capture and process screenshots**: capture, annotate, OCR, translate, copy, or send to the AI.
@@ -120,7 +146,10 @@ vvPet is composed of several Tauri windows that cooperate:
 | --- | --- |
 | `chat` | Main chat, tools, settings, workspace, library, and history |
 | `pet` | Transparent always-on-top desktop pet and quick menu |
+| `pet-quick` | Lightweight pet dock for quick chat, capture, and recent notices |
 | `island` | Compact status island and quick actions |
+| `rec-bar` | Recording bar with shared timer, level meter, and pause/stop |
+| `rec-editor` | Editing workbench for conversion, subtitles, and export |
 | `capture` | Screenshot capture and annotation |
 | `selection-translate` | Selection translation popup |
 
@@ -198,12 +227,13 @@ Models, runtimes, and Python packages live in the local application data directo
 | Outlook mail | Read through local COM integration, without a relay service |
 | Offline voice models | Stored under local application data |
 | Online TTS / translation | Text is sent only when you trigger speech or translation; Piper / Kokoro can be used offline |
+| Program execution | Runs with the current Windows account rights; a fixed working directory is not an OS sandbox |
 
 ## Repository Layout
 
 ```text
 vvpet/
-├─ docs/                 Product docs and proposals
+├─ docs/                 Product docs, proposals, and validation records
 ├─ vv/                   Main application
 │  ├─ src/               Vue frontend source
 │  ├─ src/i18n/          Locale resources
@@ -211,7 +241,10 @@ vvpet/
 │  ├─ public/            Pets and static assets
 │  └─ scripts/           Build and release scripts
 ├─ build-dist/           Marketing and distribution artifacts
+├─ showcase/             Showcase site
+├─ images/               README and documentation artwork
 ├─ AGENTS.md             Repository collaboration instructions
+├─ CHANGELOG.md          Release notes
 ├─ README.md             Chinese README
 └─ README.en.md          English README
 ```
