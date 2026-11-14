@@ -35,7 +35,14 @@ vvPet is a Windows desktop AI office pet. It combines a **resident pet, Agent wo
 
 vvPet combines a quiet desktop companion with an executable Agent workbench: use quick chat and reminders by the pet, or open a trusted workspace and actually finish the documents and code.
 
-## Recent Highlights · v0.1.33
+## Recent Highlights · v0.1.35
+
+- **Domestic mail accounts**: QQ and 163 connect over read-only IMAP with TLS, and the authorization code is stored in the Windows Credential Manager. A dedicated Mail page in the left rail configures accounts, tests the connection, syncs and opens the original message; enabled accounts sync incrementally every two minutes.
+- **Daily brief cleanup**: “Add selected”, “Open to-dos” and “Update brief” share one action bar; suggested actions come from real mail evidence and join the same to-do list without duplicates.
+- **163 cursor compatibility**: when the server omits UIDNEXT, the client now reads the real UID of the last message instead of trusting a count, so account setup no longer stops at “mailbox did not provide a valid sync cursor”.
+- **Companion page, phase one**: an independent AI conversation, memories you can review and edit, real to-do context and opt-in proactive care; replies also appear in the pet bubble and never carry office history or tool permissions.
+
+### v0.1.33
 
 - **Agent workbench**: Ask, Smart and Always approval levels with independent trusted-directory checks; agent settings now live under Engine.
 - **Expanded workspace**: trusted local folders, file browsing and editing, change/artifact history, backups, restore and task records.
@@ -72,7 +79,7 @@ See [release notes](CHANGELOG.md).
 | 🔤 Selection translation | Translate, summarize, add to todo, copy, or continue in chat from a lightweight popup |
 | 📸 Screenshot toolkit | Region capture, window snapping, annotation, mosaic, text, shapes, local OCR, copy, and chat attachments |
 | 📄 Document OCR | PDF text extraction, image OCR, local preview, and context injection; PPTX is read-only |
-| 📧 Mail digest | Outlook unread-mail reminders through local COM integration |
+| 📧 Mail digest | Local Outlook COM and read-only QQ/163 IMAP for reminders, briefs and mail actions |
 | 🏝️ Dynamic island | Compact status island for screenshots, reminders, search, Pomodoro, recording, editing and downloads |
 | 📨 File transfer | WeChat file transfer assistant embedded directly in the main window |
 | 🌍 Multilingual UI | Chinese, English, and French across chat, settings, island, pet menu, and translation windows |
@@ -144,7 +151,7 @@ vvPet is composed of several Tauri windows that cooperate:
 
 | Window | Purpose |
 | --- | --- |
-| `chat` | Main chat, tools, settings, workspace, library, and history |
+| `chat` | Main chat, tools, settings, workspace, library, mail, companion, and history |
 | `pet` | Transparent always-on-top desktop pet and quick menu |
 | `pet-quick` | Lightweight pet dock for quick chat, capture, and recent notices |
 | `island` | Compact status island and quick actions |
@@ -225,6 +232,7 @@ Models, runtimes, and Python packages live in the local application data directo
 | Documents and screenshots | Parsed locally by default; model context is triggered by user action |
 | Meeting audio | Saved locally, with offline transcription preferred |
 | Outlook mail | Read through local COM integration, without a relay service |
+| QQ/163 mail | Direct encrypted IMAP; authorization codes stay in Windows Credential Manager. The Mail page provides account setup, official guides and recent messages; initial support polls every two minutes |
 | Offline voice models | Stored under local application data |
 | Online TTS / translation | Text is sent only when you trigger speech or translation; Piper / Kokoro can be used offline |
 | Program execution | Runs with the current Windows account rights; a fixed working directory is not an OS sandbox |
