@@ -35,7 +35,14 @@ vvPet is a Windows desktop AI office pet. It combines a **resident pet, Agent wo
 
 vvPet combines a quiet desktop companion with an executable Agent workbench: use quick chat and reminders by the pet, or open a trusted workspace and actually finish the documents and code.
 
-## Recent Highlights · v0.1.35
+## Recent Highlights · v0.1.36
+
+- **Character settings**: the companion chat header now edits the character name, how it addresses you, personality, speaking style, interests and example dialogue; three personality presets apply in one click while keeping existing interests and examples, with a separate reset action.
+- **Reply language and conversation style**: replies can follow the interface, stay Chinese, stay English, or come back as a Chinese + English pair; conversation style offers natural, thoughtful or creative, all persisted on their own.
+- **Companion voice playback**: read replies in Chinese or English, read the latest reply, preview a fixed sample, or enable automatic reading. Automatic reading is off by default and only covers newly generated replies in this page, never history or character feelings.
+- **Native Edge synthesis fixes**: the missing WebSocket handshake headers are added and the current v2 challenge protocol is supported, fixing the 403 that broke playback. Chinese is pinned to Xiaoyi and English to Ana, without touching the main chat voice settings.
+
+### v0.1.35
 
 - **Domestic mail accounts**: QQ and 163 connect over read-only IMAP with TLS, and the authorization code is stored in the Windows Credential Manager. A dedicated Mail page in the left rail configures accounts, tests the connection, syncs and opens the original message; enabled accounts sync incrementally every two minutes.
 - **Daily brief cleanup**: “Add selected”, “Open to-dos” and “Update brief” share one action bar; suggested actions come from real mail evidence and join the same to-do list without duplicates.
@@ -67,13 +74,14 @@ See [release notes](CHANGELOG.md).
 | Capability | What it does |
 | --- | --- |
 | 🐳 Resident pet | Whale girl by default, Pixel Cat compatible; right-click menu, expressions, floating notices, and companion-stage interactions |
+| 💞 Companion assistant | Editable character settings (name, personality, speaking style, interests and example dialogue), three personality presets, reply language and conversation style, manageable memories and voice playback |
 | 🤖 Agent assistant | Three approval levels, model connections, enterprise gateway, bounded tools, step budget, task history and explicit resume |
 | 📂 Workspace | Browse, create, rename, delete, preview, and edit text inside authorized folders; hand work to the Agent |
 | 🧑‍💻 Code and document execution | Exact text patches, verified writes, bounded Python/Node/npm/Cargo/Git runs, real exit codes |
 | 🎙️ Recording workbench | Audio and screen recording, shared timer and level bar, offline transcription, generated minutes, MP4 conversion and subtitles |
 | 🧠 Local LLM | Local GGUF / llama.cpp runtime and model management for offline and privacy-first workflows |
 | 🎙️ Offline ASR | Whisper / SenseVoice offline recognition with runtime and model management |
-| 🗣️ Text-to-speech | Edge TTS online first; offline Piper fallback; optional Kokoro ONNX bilingual; Windows system voice as the final fallback |
+| 🗣️ Text-to-speech | Edge TTS online first (Xiaoxiao / Aria in the main chat, Xiaoyi / Ana on the companion page); offline Piper fallback; optional Kokoro ONNX bilingual; Windows system voice as the final fallback |
 | 🍅 Pomodoro | Focus timer, todos, priority, event size, postpone / complete / delete, and pet-state sync |
 | 📝 Meeting notes | Meeting recording, local saving, offline transcription, generated minutes, and attachment handoff |
 | 🔤 Selection translation | Translate, summarize, add to todo, copy, or continue in chat from a lightweight popup |
@@ -121,6 +129,18 @@ Windows system voice
 ```
 
 > Kokoro requires a one-time Python dependency install (`kokoro-onnx`, etc.) and a roughly 168 MB model download. After that it works offline. CPU synthesis takes a few seconds.
+
+### Companion page speech
+
+The companion page uses its own Edge synthesis entry with Chinese pinned to `zh-CN-XiaoyiNeural` and English pinned to `en-US-AnaNeural`, independent of the main chat voice settings:
+
+```text
+Edge TTS online (companion: Xiaoyi / Ana)
+      ↓ unavailable
+Playback error (no other voice is substituted)
+```
+
+The companion page and the main chat share playback ownership: stopping cancels the native synthesis and discards late results.
 
 ### Models and runtimes
 
@@ -248,8 +268,7 @@ vvpet/
 │  ├─ src-tauri/         Rust / Tauri backend
 │  ├─ public/            Pets and static assets
 │  └─ scripts/           Build and release scripts
-├─ build-dist/           Marketing and distribution artifacts
-├─ showcase/             Showcase site
+├─ showcase/             Showcase site source
 ├─ images/               README and documentation artwork
 ├─ AGENTS.md             Repository collaboration instructions
 ├─ CHANGELOG.md          Release notes
