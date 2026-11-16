@@ -35,7 +35,15 @@ vvPet is a Windows desktop AI office pet. It combines a **resident pet, Agent wo
 
 vvPet combines a quiet desktop companion with an executable Agent workbench: use quick chat and reminders by the pet, or open a trusted workspace and actually finish the documents and code.
 
-## Recent Highlights · v0.1.36
+## Recent Highlights · v0.1.37
+
+- **Real streaming output**: the chat page used to wait for the whole answer before showing anything. It now consumes the real SSE stream and renders text as it arrives; thinking is shown separately, and stopping keeps what already arrived while ignoring late events.
+- **Per-model brief budget**: MiniMax M3.1 Flash now gets a 131072 total output budget and `low` reasoning effort, fixing briefs that came back empty because the model ran out of budget while thinking. An explicit output cap you set is respected; other models keep their existing strategy.
+- **Companion web lookup**: the companion page can look up real information on demand (Bing search RSS, Baidu trending, Seniverse weather) with "Automatic / Every message / Off". Only the query text or city is sent, and sources are saved with the reply for hover inspection.
+- **Island entries and fuller presets**: the island carousel gains always-discoverable "Start focus" and "Screenshot" cards; the three personality presets now fill personality, speaking style, interests and example dialogue, and enable character feelings.
+- **Capture sounds**: screenshot capture and "Save as" use a project-generated 0.22 s shutter and 0.30 s confirmation tone, embedded in the binary with no online request.
+
+### v0.1.36
 
 - **Character settings**: the companion chat header now edits the character name, how it addresses you, personality, speaking style, interests and example dialogue; three personality presets apply in one click while keeping existing interests and examples, with a separate reset action.
 - **Reply language and conversation style**: replies can follow the interface, stay Chinese, stay English, or come back as a Chinese + English pair; conversation style offers natural, thoughtful or creative, all persisted on their own.
@@ -74,7 +82,7 @@ See [release notes](CHANGELOG.md).
 | Capability | What it does |
 | --- | --- |
 | 🐳 Resident pet | Whale girl by default, Pixel Cat compatible; right-click menu, expressions, floating notices, and companion-stage interactions |
-| 💞 Companion assistant | Editable character settings (name, personality, speaking style, interests and example dialogue), three personality presets, reply language and conversation style, manageable memories and voice playback |
+| 💞 Companion assistant | Editable character settings (name, personality, speaking style, interests and example dialogue), three personality presets, reply language and conversation style, manageable memories and voice playback, on-demand web lookup with sources |
 | 🤖 Agent assistant | Three approval levels, model connections, enterprise gateway, bounded tools, step budget, task history and explicit resume |
 | 📂 Workspace | Browse, create, rename, delete, preview, and edit text inside authorized folders; hand work to the Agent |
 | 🧑‍💻 Code and document execution | Exact text patches, verified writes, bounded Python/Node/npm/Cargo/Git runs, real exit codes |
@@ -85,9 +93,10 @@ See [release notes](CHANGELOG.md).
 | 🍅 Pomodoro | Focus timer, todos, priority, event size, postpone / complete / delete, and pet-state sync |
 | 📝 Meeting notes | Meeting recording, local saving, offline transcription, generated minutes, and attachment handoff |
 | 🔤 Selection translation | Translate, summarize, add to todo, copy, or continue in chat from a lightweight popup |
-| 📸 Screenshot toolkit | Region capture, window snapping, annotation, mosaic, text, shapes, local OCR, copy, and chat attachments |
+| 📸 Screenshot toolkit | Region capture, window snapping, annotation, mosaic, text, shapes, local OCR, copy, and chat attachments; project-generated shutter and confirmation tones |
 | 📄 Document OCR | PDF text extraction, image OCR, local preview, and context injection; PPTX is read-only |
 | 📧 Mail digest | Local Outlook COM and read-only QQ/163 IMAP for reminders, briefs and mail actions |
+| 📋 Daily brief | Today's brief opens with the main window; suggestions trace back to real mail sentences and can become to-dos; the output budget is chosen per model |
 | 🏝️ Dynamic island | Compact status island for screenshots, reminders, search, Pomodoro, recording, editing and downloads |
 | 📨 File transfer | WeChat file transfer assistant embedded directly in the main window |
 | 🌍 Multilingual UI | Chinese, English, and French across chat, settings, island, pet menu, and translation windows |
@@ -253,6 +262,7 @@ Models, runtimes, and Python packages live in the local application data directo
 | Meeting audio | Saved locally, with offline transcription preferred |
 | Outlook mail | Read through local COM integration, without a relay service |
 | QQ/163 mail | Direct encrypted IMAP; authorization codes stay in Windows Credential Manager. The Mail page provides account setup, official guides and recent messages; initial support polls every two minutes |
+| Companion web lookup | When enabled, only the current query text or weather city is sent to public search / trending / weather services. **No** memories, office chats or character settings are sent; results are treated as untrusted input and shown with sources |
 | Offline voice models | Stored under local application data |
 | Online TTS / translation | Text is sent only when you trigger speech or translation; Piper / Kokoro can be used offline |
 | Program execution | Runs with the current Windows account rights; a fixed working directory is not an OS sandbox |
