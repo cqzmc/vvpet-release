@@ -35,7 +35,15 @@ vvPet is a Windows desktop AI office pet. It combines a **resident pet, Agent wo
 
 vvPet combines a quiet desktop companion with an executable Agent workbench: use quick chat and reminders by the pet, or open a trusted workspace and actually finish the documents and code.
 
-## Recent Highlights · v0.1.37
+## Recent Highlights · v0.1.38
+
+- **Library search now lives in the workspace**: the search field, scope, and results sit with the workspace, and the separate Library page is gone.
+- **Mail decisions**: mail previews use the same AI judgment, draft, and feedback as new mail. The Outlook card shows sync, watch, and the last sync time.
+- **Mail summaries**: Outlook stays the default source, and another added mailbox can be selected. One summary is kept per day, week, or month, and Query opens it in chat.
+- **Workspace delete**: deletion asks for confirmation, then moves the item to the system Recycle Bin.
+- **Excel match**: a built-in skill matches tables on a key column and exports the first table as the main sheet.
+
+### v0.1.37
 
 - **Real streaming output**: the chat page used to wait for the whole answer before showing anything. It now consumes the real SSE stream and renders text as it arrives; thinking is shown separately, and stopping keeps what already arrived while ignoring late events.
 - **Per-model brief budget**: MiniMax M3.1 Flash now gets a 131072 total output budget and `low` reasoning effort, fixing briefs that came back empty because the model ran out of budget while thinking. An explicit output cap you set is respected; other models keep their existing strategy.
