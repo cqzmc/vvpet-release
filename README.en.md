@@ -35,13 +35,13 @@ vvPet is a Windows desktop AI office pet. It combines a **resident pet, Agent wo
 
 vvPet combines a quiet desktop companion with an executable Agent workbench: use quick chat and reminders by the pet, or open a trusted workspace and actually finish the documents and code.
 
-## Recent Highlights · v0.1.38
+## Recent Highlights · v0.1.39
 
-- **Library search now lives in the workspace**: the search field, scope, and results sit with the workspace, and the separate Library page is gone.
-- **Mail decisions**: mail previews use the same AI judgment, draft, and feedback as new mail. The Outlook card shows sync, watch, and the last sync time.
-- **Mail summaries**: Outlook stays the default source, and another added mailbox can be selected. One summary is kept per day, week, or month, and Query opens it in chat.
-- **Workspace delete**: deletion asks for confirmation, then moves the item to the system Recycle Bin.
-- **Excel match**: a built-in skill matches tables on a key column and exports the first table as the main sheet.
+- **Office navigation cleanup**: Quick Tools is gone and its slot is now Recording; the Pomodoro timer moved into Today and Mail Summary moved into the Mail Summary tab, leaving one entry for recording, focus and summaries.
+- **Tighter Today page**: focus and to-dos share an equal-width two-column layout; the focus duration is adjusted by hovering the ring and clicking ±1 minute, with the slider removed.
+- **Models and safety**: saved API keys are never shown again and are only replaced by entering a new key; Kimi/GLM/MiMo/OpenAI presets are removed, the local model sits after the enterprise gateway, and the trusted-directory bar is pinned above the composer for quick switching.
+- **Workspace records**: Skills opens by default; execution records and file changes are merged into Records with history deletion and attention badges; the duplicate Skills page under Engine is removed and its presets/advanced arguments moved into the workspace.
+- **Companion and UI**: the action library joins the companion toolbar and expands upward into seven groups plus All; the same mail appears only once in chat; Settings, Recording and the island no longer show a close X, and Engine tabs use the solid cyan selected style.
 
 ### v0.1.37
 
