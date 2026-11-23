@@ -35,13 +35,28 @@ vvPet is a Windows desktop AI office pet. It combines a **resident pet, Agent wo
 
 vvPet combines a quiet desktop companion with an executable Agent workbench: use quick chat and reminders by the pet, or open a trusted workspace and actually finish the documents and code.
 
-## Recent Highlights · v0.1.39
+## Recent Highlights · v0.1.40
+
+- **Assistant rules (AGENT.md)**: an `AGENT.md` file in the app data root stays in sync with the settings panel and is injected as a system rule on every chat; a workspace `AGENT.md` / `AGENTS.md` is layered on top. Priority is system safety boundaries > workspace rules > global rules, with a 4000-character global limit.
+- **Agent office tools**: the agent can now read the local knowledge base (FTS5 full text + BGE vectors), query Outlook and QQ/163 mail, read the calendar, and list to-dos and meeting records. Only "add Pomodoro to-do" writes; tools are registered per agent mode.
+- **Tighter security**: the asset protocol scope drops from a full-disk `**` to explicit application data and resource directories; external address validation, clipboard non-text detection, update filename sanitizing and an MCP host probe are added.
+- **Runtime hardening**: Python skills now stream their output with a 120-second timeout inside a process group, so cancelling really ends the child process; idle BGE sessions are unloaded; skill file hashing is streamed.
+- **Slimmer dependencies**: `ndarray`, `rayon` and the unused `playwright` and `translate.js` npm packages are removed (selection translation still loads from a CDN), and `npm test` is added.
+
+### v0.1.39
 
 - **Office navigation cleanup**: Quick Tools is gone and its slot is now Recording; the Pomodoro timer moved into Today and Mail Summary moved into the Mail Summary tab, leaving one entry for recording, focus and summaries.
 - **Tighter Today page**: focus and to-dos share an equal-width two-column layout; the focus duration is adjusted by hovering the ring and clicking ±1 minute, with the slider removed.
 - **Models and safety**: saved API keys are never shown again and are only replaced by entering a new key; Kimi/GLM/MiMo/OpenAI presets are removed, the local model sits after the enterprise gateway, and the trusted-directory bar is pinned above the composer for quick switching.
 - **Workspace records**: Skills opens by default; execution records and file changes are merged into Records with history deletion and attention badges; the duplicate Skills page under Engine is removed and its presets/advanced arguments moved into the workspace.
 - **Companion and UI**: the action library joins the companion toolbar and expands upward into seven groups plus All; the same mail appears only once in chat; Settings, Recording and the island no longer show a close X, and Engine tabs use the solid cyan selected style.
+
+### v0.1.38
+
+- **Workspace takes over library search**: search, scope, preview and "open original location" move into the workspace, the separate library page is gone, and Ctrl+3 opens workspace search.
+- **Safer deletes**: the remove button on a trusted folder only appears on hover, renaming saves on blur or Enter, and deletion is confirmed in-app before moving to the system recycle bin.
+- **Mail and mail summaries**: Outlook cards align with the other providers and previews reuse the same judgment and feedback; a summary can target any added mailbox and only one summary is kept per day, week or month.
+- **New built-in skill**: Excel column matching, which uses the first sheet as the base table, left-joins the others on key columns and exports the result.
 
 ### v0.1.37
 
@@ -91,7 +106,8 @@ See [release notes](CHANGELOG.md).
 | --- | --- |
 | 🐳 Resident pet | Whale girl by default, Pixel Cat compatible; right-click menu, expressions, floating notices, and companion-stage interactions |
 | 💞 Companion assistant | Editable character settings (name, personality, speaking style, interests and example dialogue), three personality presets, reply language and conversation style, manageable memories and voice playback, on-demand web lookup with sources |
-| 🤖 Agent assistant | Three approval levels, model connections, enterprise gateway, bounded tools, step budget, task history and explicit resume |
+| 🤖 Agent assistant | Three approval levels, model connections, enterprise gateway, bounded tools, step budget, task history and explicit resume; `AGENT.md` assistant rules are injected as a system rule on every chat |
+| 🔎 Agent office tools | Read the local knowledge base (FTS5 + BGE mix), query Outlook and QQ/163 mail, read the calendar, list to-dos and meeting records; only "add Pomodoro to-do" writes |
 | 📂 Workspace | Browse, create, rename, delete, preview, and edit text inside authorized folders; hand work to the Agent |
 | 🧑‍💻 Code and document execution | Exact text patches, verified writes, bounded Python/Node/npm/Cargo/Git runs, real exit codes |
 | 🎙️ Recording workbench | Audio and screen recording, shared timer and level bar, offline transcription, generated minutes, MP4 conversion and subtitles |
@@ -105,9 +121,15 @@ See [release notes](CHANGELOG.md).
 | 📄 Document OCR | PDF text extraction, image OCR, local preview, and context injection; PPTX is read-only |
 | 📧 Mail digest | Local Outlook COM and read-only QQ/163 IMAP for reminders, briefs and mail actions |
 | 📋 Daily brief | Today's brief opens with the main window; suggestions trace back to real mail sentences and can become to-dos; the output budget is chosen per model |
-| 🏝️ Dynamic island | Compact status island for screenshots, reminders, search, Pomodoro, recording, editing and downloads |
+| 🏝️ Dynamic island | Compact status island for screenshots, reminders, search, Pomodoro, recording, editing and downloads; reads the current media title, artist and playback state |
 | 📨 File transfer | WeChat file transfer assistant embedded directly in the main window |
 | 🌍 Multilingual UI | Chinese, English, and French across chat, settings, island, pet menu, and translation windows |
+
+## Interface Preview
+
+| Assistant rules | Dynamic island |
+| --- | --- |
+| ![Assistant rules](images/AGENT.png) | ![Dynamic island](images/灵动岛.png) |
 
 ## Three approval levels
 
