@@ -35,7 +35,16 @@ vvPet is a Windows desktop AI office pet. It combines a **resident pet, Agent wo
 
 vvPet combines a quiet desktop companion with an executable Agent workbench: use quick chat and reminders by the pet, or open a trusted workspace and actually finish the documents and code.
 
-## Recent Highlights · v0.1.40
+## Recent Highlights · v0.1.41
+
+- **Windows cut from 8 to 4**: the recording bar, editing workbench, region capture and selection translation no longer open their own windows — they are overlays inside the main window, with a single window manager handling layering and readiness. Selection translation now reads the selection through UI Automation.
+- **Dead code removed**: `SettingsPanel.vue` (1,397 lines) and `MeetingPanel.vue` (211 lines), which nothing referenced, are gone along with the source-text test that only read them and two leftover root files — **1,661 lines** deleted.
+- **Rust module split**: Outlook COM reading (`outlook_com.rs`, 472 lines) and window/overlay management (`window_manager.rs`, 241 lines) move out of the main process file; the frontend gains a shared model client and companion popover positioning.
+- **Ten agent office tools**: read meeting transcripts, take screenshot OCR context, query the Pomodoro state and control a focus session, on top of the existing read-only set.
+- **Credentials are state-only**: `load_api_key` becomes `has_api_key`, so the frontend can no longer read the key itself; enterprise sign-in drops password auto-login in favour of session status and explicit credential deletion.
+- **Permissions narrow again**: the asset scope keeps only the two recording directories and the resource directory, and reading a UI file requires a path the user explicitly authorised.
+
+### v0.1.40
 
 - **Assistant rules (AGENT.md)**: an `AGENT.md` file in the app data root stays in sync with the settings panel and is injected as a system rule on every chat; a workspace `AGENT.md` / `AGENTS.md` is layered on top. Priority is system safety boundaries > workspace rules > global rules, with a 4000-character global limit.
 - **Agent office tools**: the agent can now read the local knowledge base (FTS5 full text + BGE vectors), query Outlook and QQ/163 mail, read the calendar, and list to-dos and meeting records. Only "add Pomodoro to-do" writes; tools are registered per agent mode.
@@ -107,10 +116,10 @@ See [release notes](CHANGELOG.md).
 | 🐳 Resident pet | Whale girl by default, Pixel Cat compatible; right-click menu, expressions, floating notices, and companion-stage interactions |
 | 💞 Companion assistant | Editable character settings (name, personality, speaking style, interests and example dialogue), three personality presets, reply language and conversation style, manageable memories and voice playback, on-demand web lookup with sources |
 | 🤖 Agent assistant | Three approval levels, model connections, enterprise gateway, bounded tools, step budget, task history and explicit resume; `AGENT.md` assistant rules are injected as a system rule on every chat |
-| 🔎 Agent office tools | Read the local knowledge base (FTS5 + BGE mix), query Outlook and QQ/163 mail, read the calendar, list to-dos and meeting records; only "add Pomodoro to-do" writes |
+| 🔎 Agent office tools | Read the local knowledge base (FTS5 + BGE mix), query Outlook and QQ/163 mail, read the calendar, list to-dos and meeting records, read meeting transcripts, take screenshot OCR context, query and control the Pomodoro; only "add Pomodoro to-do" writes |
 | 📂 Workspace | Browse, create, rename, delete, preview, and edit text inside authorized folders; hand work to the Agent |
 | 🧑‍💻 Code and document execution | Exact text patches, verified writes, bounded Python/Node/npm/Cargo/Git runs, real exit codes |
-| 🎙️ Recording workbench | Audio and screen recording, shared timer and level bar, offline transcription, generated minutes, MP4 conversion and subtitles |
+| 🎙️ Recording workbench | Audio and screen recording, shared timer and level bar, offline transcription, generated minutes, MP4 conversion and subtitles; the bar and editor live inside the main window |
 | 🧠 Local LLM | Local GGUF / llama.cpp runtime and model management for offline and privacy-first workflows |
 | 🎙️ Offline ASR | Whisper / SenseVoice offline recognition with runtime and model management |
 | 🗣️ Text-to-speech | Edge TTS online first (Xiaoxiao / Aria in the main chat, Xiaoyi / Ana on the companion page); offline Piper fallback; optional Kokoro ONNX bilingual; Windows system voice as the final fallback |
@@ -206,18 +215,14 @@ The companion page and the main chat share playback ownership: stopping cancels 
 
 ## Windows and Architecture
 
-vvPet is composed of several Tauri windows that cooperate:
+vvPet is composed of 4 Tauri windows that cooperate. The recording bar, editing workbench, region capture and selection translation no longer open their own windows — they are presented as overlays inside the main window:
 
 | Window | Purpose |
 | --- | --- |
-| `chat` | Main chat, tools, settings, workspace, library, mail, companion, and history |
+| `chat` | Main chat, tools, settings, workspace, library, mail, companion, and history; hosts the recording bar, editing workbench, capture and selection translation as overlays |
 | `pet` | Transparent always-on-top desktop pet and quick menu |
 | `pet-quick` | Lightweight pet dock for quick chat, capture, and recent notices |
 | `island` | Compact status island and quick actions |
-| `rec-bar` | Recording bar with shared timer, level meter, and pause/stop |
-| `rec-editor` | Editing workbench for conversion, subtitles, and export |
-| `capture` | Screenshot capture and annotation |
-| `selection-translate` | Selection translation popup |
 
 ## Tech Stack
 
@@ -286,7 +291,7 @@ Models, runtimes, and Python packages live in the local application data directo
 
 | Data | Handling |
 | --- | --- |
-| API keys / tokens | Stored in Windows Credential Manager, not plaintext config files |
+| API keys / tokens | Stored in Windows Credential Manager, not plaintext config files; **the frontend can only ask whether a key exists, never read it back** |
 | Local search | Indexes only directories explicitly authorized by the user |
 | Documents and screenshots | Parsed locally by default; model context is triggered by user action |
 | Meeting audio | Saved locally, with offline transcription preferred |
@@ -296,6 +301,7 @@ Models, runtimes, and Python packages live in the local application data directo
 | Offline voice models | Stored under local application data |
 | Online TTS / translation | Text is sent only when you trigger speech or translation; Piper / Kokoro can be used offline |
 | Program execution | Runs with the current Windows account rights; a fixed working directory is not an OS sandbox |
+| UI file reads | A UI file can only be read after its path has been registered as explicitly authorized by the user; unauthorized paths are refused. The asset scope exposes only the two recording directories and the resource directory |
 
 ## Repository Layout
 

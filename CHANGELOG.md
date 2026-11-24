@@ -1,5 +1,53 @@
 # 更新日志
 
+## v0.1.41 · 2026-11-24
+
+> 本轮完成积压多轮的宿主拆分与死代码清理：窗口从 8 个收敛到 4 个，浮层改为主窗口内覆盖层，删除 1,661 行无引用代码，并把 API Key 与企业登录改成「只知状态、不可取回」。
+
+### 窗口与浮层重构
+
+- 窗口从 **8 个收敛到 4 个**：录制浮条、剪辑台、区域截图、划词翻译不再各自开独立窗口，改为主窗口内的覆盖层，由新增的 `window_manager.rs` 统一管理状态、层级与浮层就绪时机。
+- 新增 `RecordingEditorWindow.vue` 作为主窗口内的剪辑视图；`window-entry.ts` 重写，`shared/chat-host.ts` 合并其中。
+- 划词翻译改用 UI Automation 读取选区，不再修改窗口形状；配套的 `apply_selection_translation_window_shape` 改为 `clear_...`。
+- Tauri 能力集新增窗口控制权限（居中 / 关闭 / 聚焦 / 设置尺寸 / 显示），用于主窗口内浮层的定位与关闭。
+
+### 死代码清理
+
+- 删除 `SettingsPanel.vue`（**1,397 行**）与 `MeetingPanel.vue`（**211 行**）——这两份文件长期无任何组件引用，是连续四轮总结里登记的未处置项。
+- 删除仅以文本方式读取上述两个文件的 `test-ui-sources.mjs`，以及根目录遗留的 `package.json` 与 `check_nice.py`。
+- 合计删除 **1,661 行**无引用代码。
+
+### Rust 模块拆分
+
+- 新增 `outlook_com.rs`（**472 行**）：Outlook COM 读取从 `main.rs` 抽出。
+- 新增 `window_manager.rs`（**241 行**）：窗口与浮层状态、选区载荷、截图待处理状态统一在此管理。
+- 新增前端 `services/model-client.ts`（109 行）集中模型调用参数类型，新增 `features/companion/popover.ts`（33 行）负责陪伴页浮层定位。
+
+### Agent 办公工具扩展
+
+- 办公工具从 6 个扩展到 **10 个**：新增 `read_meeting_transcript`（读取会议转写）、`capture_ocr_context`（取截图 OCR 上下文）、`get_pomodoro_status`、`control_pomodoro_focus`（控制专注计时）。
+- 陪伴页新增「通用搜索」与搜索模式开关；未找到可用的官方模型搜索连接时给出明确提示，而不是静默失败。
+
+### 凭据与登录
+
+- `load_api_key` 改为 `has_api_key`：前端不再能取回 API Key 原文，只能知道是否存在。
+- 移除企业登录的密码式自动登录（`enterprise_auto_login`），改为会话状态查询与显式删除凭据；界面补齐「正在准备企业登录 / 正在打开企业登录页 / 正在等待企业网关响应 / 暂时无法校验已有会话 / 重试会话校验 / 重新登录」等状态。
+
+### 权限与安全
+
+- asset 协议作用域进一步收窄：从 `$APPDATA/**` + `$LOCALAPPDATA/**` 改为只允许 `$APPDATA/screen-recordings/**`、`$APPDATA/meeting-recordings/**` 与 `$RESOURCE/**`。
+- 新增 UI 文件读取授权登记（`register_user_authorized_ui_path`），读取前校验路径是否被用户显式授权。
+
+### 界面
+
+- 工作区改版：双栏布局、文件工具条、面板页签与记录切换按钮。
+- 陪伴页新增浮层定位、欢迎语，以及「思考中」「正在停止回复」状态。
+- 企业网关登录区新增「搜索目录 / 已授权目录 / 没有匹配的目录」。
+
+### 验证
+
+- 371 项前端契约测试通过；352 项原生测试通过、17 项需外部资源的测试默认忽略；Vue/TypeScript 检查与生产前端构建通过；版本统一为 0.1.41。
+
 ## v0.1.40 · 2026-11-23
 
 > 本轮把 Agent 从「会聊天」推向「有规则、有办公数据」，同时收紧运行时权限并清理依赖与素材。
