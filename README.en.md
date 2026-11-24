@@ -35,7 +35,15 @@ vvPet is a Windows desktop AI office pet. It combines a **resident pet, Agent wo
 
 vvPet combines a quiet desktop companion with an executable Agent workbench: use quick chat and reminders by the pet, or open a trusted workspace and actually finish the documents and code.
 
-## Recent Highlights · v0.1.41
+## Recent Highlights · v0.1.42
+
+- **The quick dock follows the pet**: its anchor tracks the pet position live, and the artwork is centred on the ring before scaling, so nothing drifts after a resize.
+- **Two quick chat modes**: companion mode shows the reply in a bubble and folds away after seven seconds, conversation mode returns to the input so you can keep typing. Switch with the wheel or a click; the choice is remembered. The dock also folds itself when the pet is covered.
+- **Briefs no longer wait for tomorrow**: a saved brief is reused for an hour, then it goes stale so mail that arrived later can enter the next pass.
+- **Start a fresh conversation**: the composer gains a "New chat" entry.
+- **Outlook lists no longer report a failure**: Items.GetFirst / GetNext return a non-empty VARIANT when the enumeration ends, which is the end of the list rather than a broken connection; the variant type is now classified properly.
+
+### v0.1.41
 
 - **Windows cut from 8 to 4**: the recording bar, editing workbench, region capture and selection translation no longer open their own windows — they are overlays inside the main window, with a single window manager handling layering and readiness. Selection translation now reads the selection through UI Automation.
 - **Dead code removed**: `SettingsPanel.vue` (1,397 lines) and `MeetingPanel.vue` (211 lines), which nothing referenced, are gone along with the source-text test that only read them and two leftover root files — **1,661 lines** deleted.
@@ -113,7 +121,7 @@ See [release notes](CHANGELOG.md).
 
 | Capability | What it does |
 | --- | --- |
-| 🐳 Resident pet | Whale girl by default, Pixel Cat compatible; right-click menu, expressions, floating notices, and companion-stage interactions |
+| 🐳 Resident pet | Whale girl by default, Pixel Cat compatible; right-click menu, expressions, floating notices, and companion-stage interactions. The lightweight dock below the pet tracks its anchor live and remembers whether you prefer companion or conversation mode |
 | 💞 Companion assistant | Editable character settings (name, personality, speaking style, interests and example dialogue), three personality presets, reply language and conversation style, manageable memories and voice playback, on-demand web lookup with sources |
 | 🤖 Agent assistant | Three approval levels, model connections, enterprise gateway, bounded tools, step budget, task history and explicit resume; `AGENT.md` assistant rules are injected as a system rule on every chat |
 | 🔎 Agent office tools | Read the local knowledge base (FTS5 + BGE mix), query Outlook and QQ/163 mail, read the calendar, list to-dos and meeting records, read meeting transcripts, take screenshot OCR context, query and control the Pomodoro; only "add Pomodoro to-do" writes |
@@ -129,7 +137,7 @@ See [release notes](CHANGELOG.md).
 | 📸 Screenshot toolkit | Region capture, window snapping, annotation, mosaic, text, shapes, local OCR, copy, and chat attachments; project-generated shutter and confirmation tones |
 | 📄 Document OCR | PDF text extraction, image OCR, local preview, and context injection; PPTX is read-only |
 | 📧 Mail digest | Local Outlook COM and read-only QQ/163 IMAP for reminders, briefs and mail actions |
-| 📋 Daily brief | Today's brief opens with the main window; suggestions trace back to real mail sentences and can become to-dos; the output budget is chosen per model |
+| 📋 Daily brief | Today's brief opens with the main window; suggestions trace back to real mail sentences and can become to-dos. The output budget is chosen per model, and a saved brief is reused for an hour before newer mail can enter the next pass |
 | 🏝️ Dynamic island | Compact status island for screenshots, reminders, search, Pomodoro, recording, editing and downloads; reads the current media title, artist and playback state |
 | 📨 File transfer | WeChat file transfer assistant embedded directly in the main window |
 | 🌍 Multilingual UI | Chinese, English, and French across chat, settings, island, pet menu, and translation windows |
