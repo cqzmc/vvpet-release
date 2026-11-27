@@ -35,13 +35,20 @@ vvPet is a Windows desktop AI office pet. It combines a **resident pet, Agent wo
 
 vvPet combines a quiet desktop companion with an executable Agent workbench: use quick chat and reminders by the pet, or open a trusted workspace and actually finish the documents and code.
 
-## Recent Highlights · v0.1.43
+## Recent Highlights · v0.1.44
 
-- **Pet resizing no longer drifts**: the resize is anchored to the window centre and returns to the same spot afterwards; interleaved resize and drag no longer fling the pet into a corner, and the ring menu is no longer squashed by the scale.
-- **Reply bubbles fit their content**: the bubble height adapts to the reply, a short reply folds away after seven seconds and a long one after up to twenty, and hovering pauses the timer so you can read it through.
-- **The companion can act on what you say**: "add a todo", "remind me in twenty minutes" and "today's brief" are executed directly and answered with a receipt; asking "what are my todos" no longer triggers a web search.
-- **Outlook mail is no longer skipped wholesale**: date properties are read as date variants, mail without a received time is kept, and the unread counter uses the inbox total instead of the 20-item list cap.
-- **Agent limits are spelled out**: this machine has no web search tool, and the same tool stops retrying after two consecutive failures; content moderation and an exhausted tool budget each get their own message.
+- **Single instance**: opening the app again focuses the running windows instead of starting a second copy.
+- **Today lives in the chat dock**: the separate Today rail page is gone; todos, briefs and focus sit in the dock, with date and time pickers for todos.
+- **Clearer thinking and replies**: a thinking orb and reply spinner mark generation; chat content renders as safe Markdown.
+- **Companion and speech**: English replies keep the 【心声】 / 【回复】 labels; main chat, companion and quick chat share one speech channel.
+- **Mail and Agent**: Outlook lists the inbox with unread first; Agent can preview batch rename and file organise before confirming.
+
+### v0.1.43
+
+- **Pet resizing no longer drifts**: resize is anchored to the window centre.
+- **Reply bubbles fit their content**: short replies fold after seven seconds, long ones after up to twenty.
+- **The companion can act**: "add a todo", "remind me" and "today's brief" run directly; asking about todos no longer triggers a web search.
+- **Outlook and Agent**: date variants read correctly; tool limits and moderation / budget messages are spelled out.
 
 ### v0.1.42
 
